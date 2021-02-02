@@ -1,5 +1,6 @@
 {
-  "name": "test",
+  "name": "frontend-coding-challenge",
+  "description": "PollyEx Frontend Coding Challenge",
   "version": "0.1.0",
   "private": true,
   "scripts": {
