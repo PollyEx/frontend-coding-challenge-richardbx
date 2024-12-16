@@ -1,26 +1,30 @@
+<script setup lang="ts">
+import HelloWorld from './components/HelloWorld.vue'
+</script>
+
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/instructions">Instructions</router-link>
-      <router-link to="/challenge-1">Challenge 1</router-link>
-      <router-link to="/challenge-2">Challenge 2</router-link>
-      <router-link to="/challenge-3">Challenge 3</router-link>
-    </div>
-    <router-view></router-view>
+  <div>
+    <a href="https://vite.dev" target="_blank">
+      <img src="/vite.svg" class="logo" alt="Vite logo" />
+    </a>
+    <a href="https://vuejs.org/" target="_blank">
+      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
+    </a>
   </div>
+  <HelloWorld msg="Vite + Vue" />
 </template>
 
-<style lang="scss" scoped>
-#app {
-  margin: auto;
-  max-width: 762px;
-  padding: 24px;
+<style scoped>
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
 }
-
-#nav {
-  a {
-    margin: 8px;
-    color: #2491eb;
-  }
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.vue:hover {
+  filter: drop-shadow(0 0 2em #42b883aa);
 }
 </style>
