@@ -1,8 +1,17 @@
 <script setup lang="ts">
-import CardContainer from './components/CardContainer.vue';
+import CardContainer from './components/CardContainer.vue'
 import TaskBotIcon from './assets/TaskBotIcon.svg'
-import ActionButton from './components/ActionButton.vue';
+import CalendarIcon from './assets/CalendarIcon.svg'
+import ClipboardIcon from './assets/ClipboardIcon.svg'
+import ActionButton from './components/ActionButton.vue'
+import FormInput from './components/FormInput.vue'
+import { reactive } from 'vue'
 
+const tasks = reactive([])
+
+function createTask(): void {
+  
+}
 </script>
 
 <template>
@@ -14,9 +23,27 @@ import ActionButton from './components/ActionButton.vue';
       </div>
     </template>
 
-    <ActionButton>
-      Add Task
-    </ActionButton>
+    <div class="app__body">
+      <form class="app__form" @submit.prevent="createTask">
+        <FormInput placeholder="Task">
+          <template #icon>
+            <ClipboardIcon />
+          </template>
+        </FormInput>
+
+        <FormInput type="date" placeholder="Due Date">
+          <template #icon>
+            <CalendarIcon />
+          </template>
+        </FormInput>
+
+        <ActionButton type="submit">Add Task</ActionButton>
+      </form>
+
+      <template v-if="tasks.length">
+        {{ tasks }}
+      </template>
+    </div>
   </CardContainer>
 </template>
 
@@ -31,8 +58,20 @@ import ActionButton from './components/ActionButton.vue';
   gap: 0.5rem;
 }
 
+.app__body {
+  display: flex;
+  gap: 2rem;
+}
+
 .app__icon {
   height: 34px;
   flex-shrink: 0;
+}
+
+.app__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
 }
 </style>
