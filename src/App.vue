@@ -1,30 +1,35 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import CardContainer from './components/CardContainer.vue';
+import TaskBotIcon from './assets/TaskBotIcon.svg'
+
 </script>
 
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <CardContainer class="app__card">
+    <template #heading>
+      <div class="app__heading">
+        <TaskBotIcon class="app__icon" />
+        <span>TaskBot</span>
+      </div>
+    </template>
+
+    Add Task
+  </CardContainer>
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+<style>
+.app__card {
+  margin-top: 10rem;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+.app__heading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+.app__icon {
+  height: 34px;
+  flex-shrink: 0;
 }
 </style>
