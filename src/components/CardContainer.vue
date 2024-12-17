@@ -7,7 +7,7 @@ import CloseIcon from '../assets/CloseIcon.svg'
     <div class="card-container__header">
       <slot name="heading" />
       <button type="button" class="card-container__close">
-        <CloseIcon class="card-container__close" />
+        <CloseIcon />
       </button>
     </div>
 
@@ -22,7 +22,9 @@ import CloseIcon from '../assets/CloseIcon.svg'
   display: flex block;
   flex-direction: column;
   border-radius: 24px;
+  gap: 2rem;
   background-color: var(--colors-grey-white);
+  padding: 2rem;
   width: 100%;
 }
 
@@ -32,7 +34,6 @@ import CloseIcon from '../assets/CloseIcon.svg'
   font-weight: 600;
   font-size: 20px;
   line-height: 26px;
-  padding: 2rem;
   display: flex;
   gap: 5rem;
   justify-content: space-between;
@@ -40,16 +41,20 @@ import CloseIcon from '../assets/CloseIcon.svg'
 }
 
 .card-container__body {
-  padding: 2rem;
+  display: flex;
+  gap: 2rem;
 }
 
 .card-container__close {
   fill: var(--colors-grey-700);
   flex-shrink: 0;
-  width: 18px;
 }
 
 .card-container__close:hover {
   fill: var(--colors-grey-black);
+}
+
+.card-container__close svg {
+  width: 18px;
 }
 </style>

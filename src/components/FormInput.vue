@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 import { useAttrs } from 'vue';
 
+const model = defineModel()
+
 defineOptions({
   inheritAttrs: false
 })
@@ -14,7 +16,7 @@ const attrs = useAttrs()
       <slot name="icon" />
     </div>
     
-    <input type="text" class="form-input__control" v-bind="attrs" />
+    <input type="text" class="form-input__control" v-model="model" v-bind="attrs" />
   </div>
 </template>
 

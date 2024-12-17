@@ -5,12 +5,25 @@ import CalendarIcon from './assets/CalendarIcon.svg'
 import ClipboardIcon from './assets/ClipboardIcon.svg'
 import ActionButton from './components/ActionButton.vue'
 import FormInput from './components/FormInput.vue'
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
+import TaskList from './components/TaskList.vue'
 
-const tasks = reactive([])
+const newDescription = ref<string>()
+const newDueDate = ref<Date>()
+const tasks = reactive<any[]>([])
 
 function createTask(): void {
-  
+  tasks.push({
+    description: newDescription.value,
+    dueDate: newDueDate.value,
+  })
+
+  clearForm()
+}
+
+function clearForm(): void {
+  newDescription.value = undefined
+  newDueDate.value = undefined
 }
 </script>
 
@@ -24,14 +37,15 @@ function createTask(): void {
     </template>
 
     <div class="app__body">
+      <h1>New Task</h1>
       <form class="app__form" @submit.prevent="createTask">
-        <FormInput placeholder="Task">
+        <FormInput placeholder="Task" v-model="newDescription">
           <template #icon>
             <ClipboardIcon />
           </template>
         </FormInput>
 
-        <FormInput type="date" placeholder="Due Date">
+        <FormInput type="date" placeholder="Due Date" v-model="newDueDate">
           <template #icon>
             <CalendarIcon />
           </template>
@@ -39,11 +53,11 @@ function createTask(): void {
 
         <ActionButton type="submit">Add Task</ActionButton>
       </form>
-
-      <template v-if="tasks.length">
-        {{ tasks }}
-      </template>
     </div>
+
+    <template v-if="tasks.length">
+      <TaskList :tasks="tasks" />
+    </template>
   </CardContainer>
 </template>
 
@@ -56,11 +70,6 @@ function createTask(): void {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-}
-
-.app__body {
-  display: flex;
-  gap: 2rem;
 }
 
 .app__icon {
