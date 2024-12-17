@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import CardContainer from './components/CardContainer.vue';
 import TaskBotIcon from './assets/TaskBotIcon.svg'
+import ActionButton from './components/ActionButton.vue';
 
 </script>
 
@@ -13,7 +14,9 @@ import TaskBotIcon from './assets/TaskBotIcon.svg'
       </div>
     </template>
 
-    Add Task
+    <ActionButton>
+      Add Task
+    </ActionButton>
   </CardContainer>
 </template>
 

@@ -44,8 +44,12 @@ import CloseIcon from '../assets/CloseIcon.svg'
 }
 
 .card-container__close {
-  fill: var(--colors-grey-black);
+  fill: var(--colors-grey-700);
   flex-shrink: 0;
   width: 18px;
+}
+
+.card-container__close:hover {
+  fill: var(--colors-grey-black);
 }
 </style>
