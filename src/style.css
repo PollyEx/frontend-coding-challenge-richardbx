@@ -73,7 +73,7 @@
   --colors-bespoke-lime-light: #a7d5a1;
 }
 
-html, body {
+html, body, #app {
   font-family: "InterVariable", sans-serif;
   font-feature-settings:
     'liga' 1,

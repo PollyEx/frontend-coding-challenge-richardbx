@@ -16,6 +16,7 @@ function createTask(): void {
   tasks.push({
     description: newDescription.value,
     dueDate: newDueDate.value,
+    completed: false
   })
 
   clearForm()
@@ -25,10 +26,15 @@ function clearForm(): void {
   newDescription.value = undefined
   newDueDate.value = undefined
 }
+
+function close(): void {
+  tasks.splice(0, tasks.length)
+  clearForm()
+}
 </script>
 
 <template>
-  <CardContainer class="app__card">
+  <CardContainer class="app__card" @close="close">
     <template #heading>
       <div class="app__heading">
         <TaskBotIcon class="app__icon" />
@@ -36,7 +42,7 @@ function clearForm(): void {
       </div>
     </template>
 
-    <div class="app__body">
+    <div class="app__form-container">
       <h1>New Task</h1>
       <form class="app__form" @submit.prevent="createTask">
         <FormInput placeholder="Task" v-model="newDescription">
@@ -56,7 +62,10 @@ function clearForm(): void {
     </div>
 
     <template v-if="tasks.length">
-      <TaskList :tasks="tasks" />
+      <div class="app__tasks-container">
+        <h1>Task List</h1>
+        <TaskList :tasks="tasks" />
+      </div>
     </template>
   </CardContainer>
 </template>

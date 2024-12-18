@@ -1,5 +1,9 @@
 <script lang="ts" setup>
 import CloseIcon from '../assets/CloseIcon.svg'
+
+const emit = defineEmits<{
+  close: []
+}>()
 </script>
 
 <template>
@@ -7,7 +11,7 @@ import CloseIcon from '../assets/CloseIcon.svg'
     <div class="card-container__header">
       <slot name="heading" />
       <button type="button" class="card-container__close">
-        <CloseIcon />
+        <CloseIcon @click="emit('close')" />
       </button>
     </div>
 
@@ -42,6 +46,7 @@ import CloseIcon from '../assets/CloseIcon.svg'
 
 .card-container__body {
   display: flex;
+  flex-direction: column;
   gap: 2rem;
 }
 

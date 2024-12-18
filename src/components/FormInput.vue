@@ -28,7 +28,7 @@ const attrs = useAttrs()
   border-radius: 32px;
   padding: 0.5rem 1rem;
   align-self: stretch;
-  border: 1px solid var(--colors-grey-300);
+  border: 1px solid var(--colors-grey-200);
 }
 
 .form-input:focus-within {
