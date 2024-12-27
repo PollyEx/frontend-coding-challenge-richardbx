@@ -1,0 +1,19 @@
+name: New Candidate
+
+on:
+  workflow_dispatch:  # Allows manual triggering from GitHub UI
+    inputs:
+      candidate_username:
+        description: 'GitHub username of the candidate'
+        required: true
+        type: string
+
+jobs:
+  run_automation:
+    runs-on: ubuntu-latest  # You can change the OS if needed
+    
+    steps:
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '23'
