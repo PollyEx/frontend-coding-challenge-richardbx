@@ -68,9 +68,33 @@
   --colors-bespoke-purple-lightest: #f7f5ff;
   --colors-bespoke-citron-dark: #c9f581;
   --colors-bespoke-citron-light: #dcffa2;
+  --colors-bespoke-citron-light: #dcffa2;
   --colors-bespoke-lime-dark: #295f18;
   --colors-bespoke-lime: #61c554;
   --colors-bespoke-lime-light: #a7d5a1;
+
+  --background-info: var(--colors-grey-200);
+  --background-success: var(--colors-green-100);
+  --background-warning: var(--colors-yellow-100);
+  --background-danger: var(--colors-red-100);
+
+  --margin-lg: 1.5rem;
+  --margin-md: 1rem;
+  --margin-sm: 0.5rem;
+
+  --border-radius-sm: 12px;
+  --border-radius-md: 32px;
+
+  --caption-color: var(--colors-grey-500);
+  --caption-font-size: 14px;
+  --light-primary-text: white;
+
+  --active-background-color: var(--colors-blue-100);
+
+  --body-text-color: var(--colors-grey-900);
+  --headline-text-color: var(--colors-grey-700);
+  --primary-background-color: var(--colors-grey-50);
+  --secondary-background-color: var(--colors-blue-500);
 }
 
 html, body, #app {
@@ -83,7 +107,7 @@ html, body, #app {
     -moz-osx-font-smoothing: grayscale;
   display: flex;
   justify-content: center;
-  background-color: var(--colors-bespoke-purple-bright);
+  background-color: var(--colors-blue-300);
 }
 
 h1 {
@@ -99,3 +123,4 @@ button {
   font: inherit;
   cursor: pointer;
 }
+

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useAttrs } from 'vue';
+import { useAttrs } from 'vue'
 
 const model = defineModel()
 
@@ -15,8 +15,13 @@ const attrs = useAttrs()
     <div class="form-input__icon">
       <slot name="icon" />
     </div>
-    
-    <input type="text" class="form-input__control" v-model="model" v-bind="attrs" />
+
+    <input
+      type="text"
+      class="form-input__control"
+      v-model="model"
+      v-bind="attrs"
+    />
   </div>
 </template>
 
@@ -25,7 +30,7 @@ const attrs = useAttrs()
   display: flex;
   gap: 0.5rem;
   align-items: center;
-  border-radius: 32px;
+  border-radius: var(--border-radius-md);
   padding: 0.5rem 1rem;
   align-self: stretch;
   border: 1px solid var(--colors-grey-200);
@@ -49,9 +54,9 @@ const attrs = useAttrs()
   font-size: 1.1rem;
 }
 
-input[type="date"]::-webkit-inner-spin-button,
-input[type="date"]::-webkit-calendar-picker-indicator {
-    display: none;
-    -webkit-appearance: none;
+input[type='date']::-webkit-inner-spin-button,
+input[type='date']::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
 }
 </style>

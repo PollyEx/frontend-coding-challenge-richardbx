@@ -1,18 +1,19 @@
 <script lang="ts" setup>
-import CloseIcon from '../assets/CloseIcon.svg'
+import { computed } from 'vue'
 
-const emit = defineEmits<{
-  close: []
+const { cardStyle } = defineProps<{
+  cardStyle?: String
 }>()
+
+const cardClass = computed(() => {
+  return cardStyle === 'flat' ? 'card-container--flat' : ''
+})
 </script>
 
 <template>
-  <div class="card-container">
+  <div class="card-container" :class="cardClass">
     <div class="card-container__header">
       <slot name="heading" />
-      <button type="button" class="card-container__close">
-        <CloseIcon @click="emit('close')" />
-      </button>
     </div>
 
     <div class="card-container__body">
@@ -29,7 +30,6 @@ const emit = defineEmits<{
   gap: 2rem;
   background-color: var(--colors-grey-white);
   padding: 2rem;
-  width: 100%;
 }
 
 .card-container__header {
@@ -50,16 +50,9 @@ const emit = defineEmits<{
   gap: 2rem;
 }
 
-.card-container__close {
-  fill: var(--colors-grey-700);
-  flex-shrink: 0;
-}
-
-.card-container__close:hover {
-  fill: var(--colors-grey-black);
-}
-
-.card-container__close svg {
-  width: 18px;
+.card-container--flat {
+  background-color: var(--primary-background-color);
+  gap: 0;
+  padding-top: 1rem;
 }
 </style>
